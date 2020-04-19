@@ -7,9 +7,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = scene as? UIWindowScene else { fatalError("arg") }
         self.window = UIWindow(windowScene: scene)
-        // instead of applying a view controller directly, make a wireframe first
-        let wireframe = RootWireframe()
-        self.window?.rootViewController = wireframe.viewController
+        // use URLNavigator to get vc
+        if let vc = navigator.viewController(for: "testing://root") {
+            self.window?.rootViewController = vc
+        }
         self.window?.makeKeyAndVisible()
     }
 

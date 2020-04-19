@@ -3,10 +3,10 @@
 import UIKit
 
 protocol NextWireframeInterface: WireframeInterface {
+    func navigateBack()
 }
 
 protocol NextViewInterface: ViewInterface {
-    func dismissYourself()
 }
 
 protocol NextPresenterInterface: PresenterInterface {

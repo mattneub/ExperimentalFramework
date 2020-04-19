@@ -20,8 +20,9 @@ final class NextPresenter {
 // MARK: - Extensions -
 
 extension NextPresenter: NextPresenterInterface {
+    // decided I had this wrong before: only the wireframe should navigate
     func userWantsToNavigateBack() {
-        self.view.dismissYourself()
+        self.wireframe.navigateBack()
     }
     
 }

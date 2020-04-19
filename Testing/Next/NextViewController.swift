@@ -37,10 +37,4 @@ final class NextViewController: UIViewController {
 // MARK: - Extensions -
 
 extension NextViewController: NextViewInterface {
-    func dismissYourself() {
-        delay(0.2) { // otherwise we don't get nice animation
-            self.dismiss(animated: true)
-        }
-    }
-    
 }

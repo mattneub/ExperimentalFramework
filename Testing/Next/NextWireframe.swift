@@ -20,4 +20,10 @@ final class NextWireframe: BaseWireframe {
 // MARK: - Extensions -
 
 extension NextWireframe: NextWireframeInterface {
+    func navigateBack() {
+        // viewController.dismiss(animated: true)
+        // but here's a way to make the navigator do it, just a fun idea
+        let h = navigator.handler(for: "testing://backToRoot", context: viewController)
+        _ = h?()
+    }
 }
