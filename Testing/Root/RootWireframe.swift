@@ -20,4 +20,11 @@ final class RootWireframe: BaseWireframe {
 // MARK: - Extensions -
 
 extension RootWireframe: RootWireframeInterface {
+    
+    // navigation is like the start: make a wireframe and "present" the wireframe
+    func navigateFromRootToNextVC() {
+        let wireframe = NextWireframe()
+        self.viewController.presentWireframe(wireframe)
+    }
+    
 }

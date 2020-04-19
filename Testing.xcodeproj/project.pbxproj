@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		819E9DE7244CA437007E6C5B /* NextInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E9DE2244CA437007E6C5B /* NextInterfaces.swift */; };
+		819E9DE8244CA437007E6C5B /* NextPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E9DE3244CA437007E6C5B /* NextPresenter.swift */; };
+		819E9DE9244CA437007E6C5B /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E9DE4244CA437007E6C5B /* NextViewController.swift */; };
+		819E9DEA244CA437007E6C5B /* NextInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E9DE5244CA437007E6C5B /* NextInteractor.swift */; };
+		819E9DEB244CA437007E6C5B /* NextWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E9DE6244CA437007E6C5B /* NextWireframe.swift */; };
 		81D1C75B244C9D16008B46B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1C75A244C9D16008B46B1 /* AppDelegate.swift */; };
 		81D1C75D244C9D16008B46B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1C75C244C9D16008B46B1 /* SceneDelegate.swift */; };
 		81D1C762244C9D16008B46B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D1C760244C9D16008B46B1 /* Main.storyboard */; };
@@ -26,6 +31,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		819E9DE2244CA437007E6C5B /* NextInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextInterfaces.swift; sourceTree = "<group>"; };
+		819E9DE3244CA437007E6C5B /* NextPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextPresenter.swift; sourceTree = "<group>"; };
+		819E9DE4244CA437007E6C5B /* NextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
+		819E9DE5244CA437007E6C5B /* NextInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextInteractor.swift; sourceTree = "<group>"; };
+		819E9DE6244CA437007E6C5B /* NextWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextWireframe.swift; sourceTree = "<group>"; };
 		81D1C757244C9D16008B46B1 /* Testing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Testing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D1C75A244C9D16008B46B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81D1C75C244C9D16008B46B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +67,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		819E9DD7244CA3E8007E6C5B /* Next */ = {
+			isa = PBXGroup;
+			children = (
+				819E9DE2244CA437007E6C5B /* NextInterfaces.swift */,
+				819E9DE3244CA437007E6C5B /* NextPresenter.swift */,
+				819E9DE4244CA437007E6C5B /* NextViewController.swift */,
+				819E9DE5244CA437007E6C5B /* NextInteractor.swift */,
+				819E9DE6244CA437007E6C5B /* NextWireframe.swift */,
+			);
+			path = Next;
+			sourceTree = "<group>";
+		};
 		81D1C74E244C9D16008B46B1 = {
 			isa = PBXGroup;
 			children = (
@@ -84,6 +106,7 @@
 				81D1C765244C9D18008B46B1 /* LaunchScreen.storyboard */,
 				81D1C768244C9D18008B46B1 /* Info.plist */,
 				81D1C778244C9D6E008B46B1 /* Root */,
+				819E9DD7244CA3E8007E6C5B /* Next */,
 			);
 			path = Testing;
 			sourceTree = "<group>";
@@ -185,15 +208,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				81D1C774244C9D5A008B46B1 /* RootPresenter.swift in Sources */,
+				819E9DE9244CA437007E6C5B /* NextViewController.swift in Sources */,
+				819E9DEA244CA437007E6C5B /* NextInteractor.swift in Sources */,
 				81D1C782244C9DD2008B46B1 /* FormatterInterface.swift in Sources */,
 				81D1C783244C9DD2008B46B1 /* BaseWireframe.swift in Sources */,
+				819E9DEB244CA437007E6C5B /* NextWireframe.swift in Sources */,
 				81D1C776244C9D5A008B46B1 /* RootInteractor.swift in Sources */,
 				81D1C775244C9D5A008B46B1 /* RootViewController.swift in Sources */,
 				81D1C785244C9DD2008B46B1 /* UIStoryboardExtension.swift in Sources */,
 				81D1C780244C9DD2008B46B1 /* ViewInterface.swift in Sources */,
 				81D1C777244C9D5A008B46B1 /* RootWireframe.swift in Sources */,
 				81D1C781244C9DD2008B46B1 /* InteractorInterface.swift in Sources */,
+				819E9DE8244CA437007E6C5B /* NextPresenter.swift in Sources */,
 				81D1C784244C9DD2008B46B1 /* PresenterInterface.swift in Sources */,
+				819E9DE7244CA437007E6C5B /* NextInterfaces.swift in Sources */,
 				81D1C75B244C9D16008B46B1 /* AppDelegate.swift in Sources */,
 				81D1C75D244C9D16008B46B1 /* SceneDelegate.swift in Sources */,
 				81D1C773244C9D5A008B46B1 /* RootInterfaces.swift in Sources */,

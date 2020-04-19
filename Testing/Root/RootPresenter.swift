@@ -20,4 +20,8 @@ final class RootPresenter {
 // MARK: - Extensions -
 
 extension RootPresenter: RootPresenterInterface {
+    func userWantsToNavigate() {
+        self.wireframe.navigateFromRootToNextVC()
+    }
+    
 }
