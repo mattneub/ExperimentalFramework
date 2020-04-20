@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		813C465D244CDFCB00CA6EC5 /* Routes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 813C465C244CDFCB00CA6EC5 /* Routes.swift */; };
 		819E9DE7244CA437007E6C5B /* NextInterfaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E9DE2244CA437007E6C5B /* NextInterfaces.swift */; };
 		819E9DE8244CA437007E6C5B /* NextPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E9DE3244CA437007E6C5B /* NextPresenter.swift */; };
 		819E9DE9244CA437007E6C5B /* NextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E9DE4244CA437007E6C5B /* NextViewController.swift */; };
@@ -35,6 +36,7 @@
 /* Begin PBXFileReference section */
 		3E06DBF1D5E0D3F6DC9AFA27 /* Pods-Testing.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Testing.release.xcconfig"; path = "Target Support Files/Pods-Testing/Pods-Testing.release.xcconfig"; sourceTree = "<group>"; };
 		63FB591F4168744FF9CDE68A /* Pods_Testing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Testing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		813C465C244CDFCB00CA6EC5 /* Routes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Routes.swift; sourceTree = "<group>"; };
 		819E9DE2244CA437007E6C5B /* NextInterfaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextInterfaces.swift; sourceTree = "<group>"; };
 		819E9DE3244CA437007E6C5B /* NextPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextPresenter.swift; sourceTree = "<group>"; };
 		819E9DE4244CA437007E6C5B /* NextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				81A2759E244CAAC6004A5D56 /* URLNavigationMap.swift */,
+				813C465C244CDFCB00CA6EC5 /* Routes.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				81D1C784244C9DD2008B46B1 /* PresenterInterface.swift in Sources */,
 				819E9DE7244CA437007E6C5B /* NextInterfaces.swift in Sources */,
 				81D1C75B244C9D16008B46B1 /* AppDelegate.swift in Sources */,
+				813C465D244CDFCB00CA6EC5 /* Routes.swift in Sources */,
 				81D1C75D244C9D16008B46B1 /* SceneDelegate.swift in Sources */,
 				81D1C773244C9D5A008B46B1 /* RootInterfaces.swift in Sources */,
 			);

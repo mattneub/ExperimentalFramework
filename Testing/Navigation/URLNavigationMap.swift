@@ -1,31 +1,51 @@
 import Foundation
 import URLNavigator
 
-// the point, as a step on from the previous, is that the knowledge
-// of what wireframe to initialize now resides entirely in one place, here
+// translate enum case to URL
+extension NavigatorType {
+    func register(_ route: Route, _ factory: @escaping ViewControllerFactory) {
+        self.register(route.rawValue, factory)
+    }
+    func handle(_ route: Route, _ factory: @escaping URLOpenHandlerFactory) {
+        self.handle(route.rawValue, factory)
+    }
+    func open(_ route: Route, context: Any? = nil) -> Bool {
+        self.open(route.rawValue, context: context)
+    }
+}
+
 
 enum URLNavigationMap {
   static func initialize(navigator: NavigatorType) {
-    // _register_ URLs
-    navigator.register("testing://root") {
+    // handle makes handler that responds to `open`
+    // we make the next wireframe and view controller...
+    // and pass the view controller as target back to delegate
+    // our choice of method tells the delegate what to do
+    // here we assume that the context _is_ the delegate...
+    // but we could receive anything really
+    navigator.handle(.root) {
         url, values, context in
-        let wireframe = RootWireframe()
-        return wireframe.viewController
+        if let source = context as? RouterDelegate {
+            let wireframe = RootWireframe()
+            source.replaceRootViewController(wireframe.viewController)
+            return true
+        }
+        return false
     }
-    navigator.register("testing://next") {
+    navigator.handle(.next) {
         url, values, context in
-        let wireframe = NextWireframe()
-        return wireframe.viewController
+        if let source = context as? RouterDelegate {
+            let wireframe = NextWireframe()
+            source.present(wireframe.viewController, animated: true)
+            return true
+        }
+        return false
     }
-    // _handle_ URLs
-    // this is sort of silly example, but shows how we might dismiss _here_
-    // rather than in wireframe
-    navigator.handle("testing://backToRoot") {
+    navigator.handle(.backToRoot) {
         url, values, context in
-        (context as? UIViewController)?.dismiss(animated: true)
+        (context as? RouterDelegate)?.dismiss(animated: true)
         return true
     }
-    
   }
 }
 

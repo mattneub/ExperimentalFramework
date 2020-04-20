@@ -19,15 +19,15 @@ final class RootWireframe: BaseWireframe {
 
 // MARK: - Extensions -
 
+// using RouterDelegate means we both request root and perform navigation
+// that seems the right division of labor
 extension RootWireframe: RootWireframeInterface {
-    
     func navigateFromRootToNextVC() {
-        // use navigator to get next vc
-        if let vc = navigator.viewController(for: "testing://next") {
-            self.viewController.present(vc, animated: true)
-        }
-        // alternatively we can ask the navigator to just do it
-        // navigator.present("testing://next")
+        Router(from: self).goto(.next)
     }
-    
+}
+extension RootWireframe: RouterDelegate {
+    func present(_ target: UIViewController, animated: Bool) {
+        self.viewController.present(target, animated:animated)
+    }
 }

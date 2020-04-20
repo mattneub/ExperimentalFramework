@@ -7,14 +7,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let scene = scene as? UIWindowScene else { fatalError("arg") }
         self.window = UIWindow(windowScene: scene)
-        // use URLNavigator to get vc
-        if let vc = navigator.viewController(for: "testing://root") {
-            self.window?.rootViewController = vc
-        }
+        Router(from: self).goto(.root)
+    }
+}
+
+// using RouterDelegate means we both request root and perform navigation
+// that seems the right division of labor
+extension SceneDelegate: RouterDelegate {
+    func replaceRootViewController(_ viewController: UIViewController) {
+        self.window?.rootViewController = viewController
         self.window?.makeKeyAndVisible()
     }
-
-
-
 }
 

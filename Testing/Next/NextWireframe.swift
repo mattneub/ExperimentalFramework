@@ -19,11 +19,15 @@ final class NextWireframe: BaseWireframe {
 
 // MARK: - Extensions -
 
+// using RouterDelegate means we both request root and perform navigation
+// that seems the right division of labor
 extension NextWireframe: NextWireframeInterface {
     func navigateBack() {
-        // viewController.dismiss(animated: true)
-        // but here's a way to make the navigator do it, just a fun idea
-        let h = navigator.handler(for: "testing://backToRoot", context: viewController)
-        _ = h?()
+        Router(from: self).goto(.backToRoot)
+    }
+}
+extension NextWireframe: RouterDelegate {
+    func dismiss(animated: Bool) {
+        viewController.dismiss(animated: animated)
     }
 }
