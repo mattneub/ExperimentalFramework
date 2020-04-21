@@ -1,4 +1,6 @@
 import UIKit
+import Swinject
+import SwinjectAutoregistration
 
 final class NextWireframe: BaseWireframe {
 
@@ -6,8 +8,13 @@ final class NextWireframe: BaseWireframe {
 
     // MARK: - Module setup -
 
-    // no `init` needed, unless we have private properties to configure
-    // the container registration calls our superclass's `init(viewController:)` as required
+    init() {
+        // boilerplate, I don't see how to remove this because we might have other tasks in our `init`...
+        // but at least it's darned compact now
+        let view: NextViewController = container~>
+        super.init(viewController: view)
+        view.presenter = container ~> (NextPresenter.self, argument: self)
+    }
 }
 
 // MARK: - Extensions -

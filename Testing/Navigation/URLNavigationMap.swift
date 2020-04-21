@@ -1,5 +1,7 @@
 import Foundation
 import URLNavigator
+import Swinject
+import SwinjectAutoregistration
 
 // translate enum case to URL
 extension NavigatorType {
@@ -26,7 +28,7 @@ enum URLNavigationMap {
     navigator.handle(.root) {
         url, values, context in
         if let source = context as? RouterDelegate {
-            let wireframe = container.resolve(RootWireframe.self)!
+            let wireframe: RootWireframe = container~>
             source.replaceRootViewController(wireframe.viewController)
             return true
         }
@@ -35,7 +37,7 @@ enum URLNavigationMap {
     navigator.handle(.next) {
         url, values, context in
         if let source = context as? RouterDelegate {
-            let wireframe = container.resolve(NextWireframe.self)!
+            let wireframe: NextWireframe = container~>
             source.present(wireframe.viewController, animated: true)
             return true
         }

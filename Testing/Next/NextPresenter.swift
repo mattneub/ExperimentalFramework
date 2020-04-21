@@ -9,8 +9,8 @@ final class NextPresenter {
     private let wireframe: NextWireframeInterface
 
     // MARK: - Lifecycle -
-
-    init(view: NextViewInterface, interactor: NextInteractorInterface, wireframe: NextWireframeInterface) {
+    // Note! initializer has to be changed from template, to specify actual types, so we can autoregister
+    init(view: NextViewController, interactor: NextInteractor, wireframe: NextWireframe) {
         self.view = view
         self.interactor = interactor
         self.wireframe = wireframe
@@ -20,7 +20,6 @@ final class NextPresenter {
 // MARK: - Extensions -
 
 extension NextPresenter: NextPresenterInterface {
-    // decided I had this wrong before: only the wireframe should navigate
     func userWantsToNavigateBack() {
         self.wireframe.navigateBack()
     }

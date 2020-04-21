@@ -10,6 +10,7 @@ final class RootViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("viewDidLoad", self)
         // non-template code just so we see something
         self.view.backgroundColor = .white
         let label = UILabel()

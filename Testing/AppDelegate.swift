@@ -1,6 +1,7 @@
 import UIKit
 import URLNavigator
 import Swinject
+import SwinjectAutoregistration
 
 func delay(_ delay:Double, closure:@escaping ()->()) {
     let when = DispatchTime.now() + delay
@@ -24,47 +25,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     private func doSwinjectRegistration() {
-        container.register(RootViewController.self) { _ in
-            return RootViewController()
-        }
-        container.register(RootInteractor.self) { _ in
-            return RootInteractor()
-        }
-        container.register(RootPresenter.self) { (resolver, wireframe: RootWireframe) in
-            let view = resolver.resolve(RootViewController.self)!
-            let interactor = resolver.resolve(RootInteractor.self)!
-            return RootPresenter(view: view, interactor: interactor, wireframe: wireframe)
-        }
-        container.register(RootWireframe.self) { resolver in
-            // the repetition of `view` resolution doesn't matter! we have `.graph` scope by default...
-            // ...so in fact there will be only one instance created (and I can prove it)
-            let view = resolver.resolve(RootViewController.self)!
-            let wireframe = RootWireframe.init(viewController: view)
-            let presenter = resolver.resolve(RootPresenter.self, argument: wireframe)
-            view.presenter = presenter
-            return wireframe
-        }
+        // greatly reduce boilerplate by using autoregister
+        // let's clump "same" types together, as order is irrelevant
         
-        container.register(NextViewController.self) { _ in
-            return NextViewController()
-        }
-        container.register(NextInteractor.self) { _ in
-            return NextInteractor()
-        }
-        container.register(NextPresenter.self) { (resolver, wireframe: NextWireframe) in
-            let view = resolver.resolve(NextViewController.self)!
-            let interactor = resolver.resolve(NextInteractor.self)!
-            return NextPresenter(view: view, interactor: interactor, wireframe: wireframe)
-        }
-        container.register(NextWireframe.self) { resolver in
-            // the repetition of `view` resolution doesn't matter! we have `.graph` scope by default...
-            // ...so in fact there will be only one instance created
-            let view = resolver.resolve(NextViewController.self)!
-            let wireframe = NextWireframe.init(viewController: view)
-            let presenter = resolver.resolve(NextPresenter.self, argument: wireframe)
-            view.presenter = presenter
-            return wireframe
-        }
+        container.autoregister(RootViewController.self, initializer: RootViewController.init(nibName:bundle:))
+        container.autoregister(NextViewController.self, initializer: NextViewController.init(nibName:bundle:))
+
+        container.autoregister(RootInteractor.self, initializer: RootInteractor.init)
+        container.autoregister(NextInteractor.self, initializer: NextInteractor.init)
+
+        container.autoregister(RootPresenter.self, argument: RootWireframe.self, initializer: RootPresenter.init)
+        container.autoregister(NextPresenter.self, argument: NextWireframe.self, initializer: NextPresenter.init)
+        
+        // boilerplate moved back to wireframe inits
+        container.autoregister(RootWireframe.self, initializer: RootWireframe.init)
+        container.autoregister(NextWireframe.self, initializer: NextWireframe.init)
 
     }
 }

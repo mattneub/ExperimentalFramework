@@ -9,8 +9,8 @@ final class RootPresenter {
     private let wireframe: RootWireframeInterface
 
     // MARK: - Lifecycle -
-
-    init(view: RootViewInterface, interactor: RootInteractorInterface, wireframe: RootWireframeInterface) {
+    // Note! initializer has to be changed from template, to specify actual types, so we can autoregister
+    init(view: RootViewController, interactor: RootInteractor, wireframe: RootWireframe) {
         self.view = view
         self.interactor = interactor
         self.wireframe = wireframe

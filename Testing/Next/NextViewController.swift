@@ -10,7 +10,7 @@ final class NextViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("viewDidLoad", self)
         self.view.backgroundColor = .white
         let label = UILabel()
         label.text = "You did it!"
@@ -30,6 +30,10 @@ final class NextViewController: UIViewController {
     @objc func doButton(_ sender: Any) {
         // we are not allowed to do anything ourselves; talk to the presenter
         self.presenter.userWantsToNavigateBack()
+    }
+    
+    deinit {
+        print("farewell", self)
     }
 
 }

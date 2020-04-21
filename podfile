@@ -3,4 +3,5 @@ target 'Testing' do
   use_frameworks!
   pod 'URLNavigator'
   pod 'Swinject'
+  pod 'SwinjectAutoregistration'
 end
