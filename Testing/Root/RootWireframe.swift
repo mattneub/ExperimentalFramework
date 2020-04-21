@@ -6,15 +6,8 @@ final class RootWireframe: BaseWireframe {
 
     // MARK: - Module setup -
 
-    init() {
-        let moduleViewController = RootViewController()
-        super.init(viewController: moduleViewController)
-
-        let interactor = RootInteractor()
-        let presenter = RootPresenter(view: moduleViewController, interactor: interactor, wireframe: self)
-        moduleViewController.presenter = presenter
-    }
-
+    // no `init` needed, unless we have private properties to configure
+    // the container registration calls our superclass's `init(viewController:)` as required
 }
 
 // MARK: - Extensions -

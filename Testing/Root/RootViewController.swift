@@ -7,7 +7,7 @@ final class RootViewController: UIViewController {
     var presenter: RootPresenterInterface!
 
     // MARK: - Lifecycle -
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // non-template code just so we see something

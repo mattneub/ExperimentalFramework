@@ -26,7 +26,7 @@ enum URLNavigationMap {
     navigator.handle(.root) {
         url, values, context in
         if let source = context as? RouterDelegate {
-            let wireframe = RootWireframe()
+            let wireframe = container.resolve(RootWireframe.self)!
             source.replaceRootViewController(wireframe.viewController)
             return true
         }
@@ -35,7 +35,7 @@ enum URLNavigationMap {
     navigator.handle(.next) {
         url, values, context in
         if let source = context as? RouterDelegate {
-            let wireframe = NextWireframe()
+            let wireframe = container.resolve(NextWireframe.self)!
             source.present(wireframe.viewController, animated: true)
             return true
         }
