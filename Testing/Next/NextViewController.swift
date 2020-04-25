@@ -1,10 +1,8 @@
 import UIKit
 
-final class NextViewController: BaseViewController {
+final class NextViewController: BaseViewController<NextPresenter> {
 
     // MARK: - Public properties -
-
-    var presenter: NextPresenterInterface!
 
     // MARK: - Lifecycle -
 

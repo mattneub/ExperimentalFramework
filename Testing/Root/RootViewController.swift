@@ -1,11 +1,9 @@
 import UIKit
 
-final class RootViewController: BaseViewController {
+final class RootViewController: BaseViewController<RootPresenter> {
 
     // MARK: - Public properties -
     
-    var presenter: RootPresenterInterface!
-
     // MARK: - Lifecycle -
     
     override func viewDidLoad() {
