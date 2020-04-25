@@ -23,7 +23,7 @@ final class RootWireframe: BaseWireframe {
 // that seems the right division of labor
 extension RootWireframe: RootWireframeInterface {
     func navigateFromRootToNextVC() {
-        Router(from: self).goto(.next)
+        Router(from: self).goto(.rootNext)
     }
 }
 extension RootWireframe: RouterDelegate {

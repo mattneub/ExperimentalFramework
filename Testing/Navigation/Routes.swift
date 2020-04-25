@@ -3,7 +3,7 @@ import UIKit
 // cases instead of URLs
 enum Route : String {
     case root = "testing://root"
-    case next = "testing://next"
+    case rootNext = "testing://root/next"
     case backToRoot = "testing://backToRoot"
 }
 
@@ -37,8 +37,8 @@ struct Router {
         switch route {
         case .root:
             _ = navigator.open(.root, context: source)
-        case .next:
-            _ = navigator.open(.next, context: source)
+        case .rootNext:
+            _ = navigator.open(.rootNext, context: source)
         case .backToRoot:
             _ = navigator.open(.backToRoot, context: source)
         }

@@ -1,9 +1,9 @@
 import UIKit
 
-final class RootViewController: UIViewController {
+final class RootViewController: BaseViewController {
 
     // MARK: - Public properties -
-
+    
     var presenter: RootPresenterInterface!
 
     // MARK: - Lifecycle -
@@ -11,6 +11,9 @@ final class RootViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad", self)
+    }
+    
+    override func setupViews() {
         // non-template code just so we see something
         self.view.backgroundColor = .white
         let label = UILabel()

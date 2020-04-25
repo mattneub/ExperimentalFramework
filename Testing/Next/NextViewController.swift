@@ -1,6 +1,6 @@
 import UIKit
 
-final class NextViewController: UIViewController {
+final class NextViewController: BaseViewController {
 
     // MARK: - Public properties -
 
@@ -11,6 +11,14 @@ final class NextViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("viewDidLoad", self)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print(URLNavigationMap.currentRoute as Any)
+    }
+    
+    override func setupViews() {
         self.view.backgroundColor = .white
         let label = UILabel()
         label.text = "You did it!"
@@ -24,7 +32,8 @@ final class NextViewController: UIViewController {
         b.frame.origin = CGPoint(x: 50, y: 100)
         self.view.addSubview(b)
         b.addTarget(self, action: #selector(doButton), for: .primaryActionTriggered)
-
+        
+        print(URLNavigationMap.currentRoute as Any)
     }
     
     @objc func doButton(_ sender: Any) {

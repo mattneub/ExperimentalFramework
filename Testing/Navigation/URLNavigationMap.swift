@@ -18,36 +18,41 @@ extension NavigatorType {
 
 
 enum URLNavigationMap {
-  static func initialize(navigator: NavigatorType) {
-    // handle makes handler that responds to `open`
-    // we make the next wireframe and view controller...
-    // and pass the view controller as target back to delegate
-    // our choice of method tells the delegate what to do
-    // here we assume that the context _is_ the delegate...
-    // but we could receive anything really
-    navigator.handle(.root) {
-        url, values, context in
-        if let source = context as? RouterDelegate {
-            let wireframe: RootWireframe = container~>
-            source.replaceRootViewController(wireframe.viewController)
+    private static var _currentRoute: URLConvertible?
+    static var currentRoute: URLConvertible? {_currentRoute}
+    static func initialize(navigator: NavigatorType) {
+        // handle makes handler that responds to `open`
+        // we make the next wireframe and view controller...
+        // and pass the view controller as target back to delegate
+        // our choice of method tells the delegate what to do
+        // here we assume that the context _is_ the delegate...
+        // but we could receive anything really
+        navigator.handle(.root) {
+            url, values, context in
+            if let source = context as? RouterDelegate {
+                let wireframe: RootWireframe = container~>
+                source.replaceRootViewController(wireframe.viewController)
+                self._currentRoute = url
+                return true
+            }
+            return false
+        }
+        navigator.handle(.rootNext) {
+            url, values, context in
+            if let source = context as? RouterDelegate {
+                let wireframe: NextWireframe = container~>
+                source.present(wireframe.viewController, animated: true)
+                self._currentRoute = url
+                return true
+            }
+            return false
+        }
+        navigator.handle(.backToRoot) {
+            url, values, context in
+            (context as? RouterDelegate)?.dismiss(animated: true)
+            self._currentRoute = url
             return true
         }
-        return false
     }
-    navigator.handle(.next) {
-        url, values, context in
-        if let source = context as? RouterDelegate {
-            let wireframe: NextWireframe = container~>
-            source.present(wireframe.viewController, animated: true)
-            return true
-        }
-        return false
-    }
-    navigator.handle(.backToRoot) {
-        url, values, context in
-        (context as? RouterDelegate)?.dismiss(animated: true)
-        return true
-    }
-  }
 }
 

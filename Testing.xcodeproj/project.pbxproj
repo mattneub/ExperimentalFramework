@@ -14,6 +14,7 @@
 		819E9DEA244CA437007E6C5B /* NextInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E9DE5244CA437007E6C5B /* NextInteractor.swift */; };
 		819E9DEB244CA437007E6C5B /* NextWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 819E9DE6244CA437007E6C5B /* NextWireframe.swift */; };
 		81A2759F244CAAC6004A5D56 /* URLNavigationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A2759E244CAAC6004A5D56 /* URLNavigationMap.swift */; };
+		81B835BF24547B8D00ACFB50 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B835BE24547B8D00ACFB50 /* BaseViewController.swift */; };
 		81D1C75B244C9D16008B46B1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1C75A244C9D16008B46B1 /* AppDelegate.swift */; };
 		81D1C75D244C9D16008B46B1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81D1C75C244C9D16008B46B1 /* SceneDelegate.swift */; };
 		81D1C762244C9D16008B46B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81D1C760244C9D16008B46B1 /* Main.storyboard */; };
@@ -43,6 +44,7 @@
 		819E9DE5244CA437007E6C5B /* NextInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextInteractor.swift; sourceTree = "<group>"; };
 		819E9DE6244CA437007E6C5B /* NextWireframe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextWireframe.swift; sourceTree = "<group>"; };
 		81A2759E244CAAC6004A5D56 /* URLNavigationMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLNavigationMap.swift; sourceTree = "<group>"; };
+		81B835BE24547B8D00ACFB50 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		81D1C757244C9D16008B46B1 /* Testing.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Testing.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81D1C75A244C9D16008B46B1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81D1C75C244C9D16008B46B1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				81D1C77D244C9DD2008B46B1 /* BaseWireframe.swift */,
+				81B835BE24547B8D00ACFB50 /* BaseViewController.swift */,
 				81D1C77C244C9DD2008B46B1 /* FormatterInterface.swift */,
 				81D1C77B244C9DD2008B46B1 /* InteractorInterface.swift */,
 				81D1C77E244C9DD2008B46B1 /* PresenterInterface.swift */,
@@ -294,6 +297,7 @@
 				81A2759F244CAAC6004A5D56 /* URLNavigationMap.swift in Sources */,
 				819E9DEA244CA437007E6C5B /* NextInteractor.swift in Sources */,
 				81D1C782244C9DD2008B46B1 /* FormatterInterface.swift in Sources */,
+				81B835BF24547B8D00ACFB50 /* BaseViewController.swift in Sources */,
 				81D1C783244C9DD2008B46B1 /* BaseWireframe.swift in Sources */,
 				819E9DEB244CA437007E6C5B /* NextWireframe.swift in Sources */,
 				81D1C776244C9D5A008B46B1 /* RootInteractor.swift in Sources */,
