@@ -20,4 +20,7 @@ class BaseViewController<PresenterType: PresenterInterface>: UIViewController {
     func setupAccessibilities() {}
     func setupColors() {}
 
+    deinit {
+        print("farewell", self)
+    }
 }

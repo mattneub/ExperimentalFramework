@@ -1,6 +1,6 @@
 import Foundation
 
-final class NextInteractor {
+final class NextInteractor: BaseInteractor {
 }
 
 // MARK: - Extensions -

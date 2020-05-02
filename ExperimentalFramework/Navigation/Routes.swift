@@ -1,19 +1,24 @@
 import UIKit
 
-// cases instead of URLs
+// let's use enum cases instead of URLs
 enum Route : String {
     case root = "testing://root"
-    case rootNext = "testing://root/next"
+    case rootNextByPresenting = "testing://root/nextByPresenting"
+    case rootNextByPushing = "testing://root/nextByPushing"
     case backToRoot = "testing://backToRoot"
 }
 
 // by writing the delegate this way, we make the methods effectively optional
 protocol RouterDelegate {
+    func push(_ viewController: UIViewController, animated: Bool)
     func present(_ viewController: UIViewController, animated: Bool)
     func dismiss(animated: Bool)
     func replaceRootViewController(_ viewController: UIViewController)
 }
 extension RouterDelegate {
+    func push(_ viewController: UIViewController, animated: Bool) {
+        fatalError("unimplemented RouterDelegate method")
+    }
     func present(_ viewController: UIViewController, animated: Bool) {
         fatalError("unimplemented RouterDelegate method")
     }
@@ -37,8 +42,10 @@ struct Router {
         switch route {
         case .root:
             _ = navigator.open(.root, context: source)
-        case .rootNext:
-            _ = navigator.open(.rootNext, context: source)
+        case .rootNextByPresenting:
+            _ = navigator.open(.rootNextByPresenting, context: source)
+        case .rootNextByPushing:
+            _ = navigator.open(.rootNextByPushing, context: source)
         case .backToRoot:
             _ = navigator.open(.backToRoot, context: source)
         }

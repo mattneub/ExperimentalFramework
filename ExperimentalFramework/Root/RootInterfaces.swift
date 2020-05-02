@@ -1,14 +1,16 @@
 import UIKit
 
 protocol RootWireframeInterface: WireframeInterface {
-    func navigateFromRootToNextVC()
+    func navigateToNextVCByPresenting()
+    func navigateToNextVCByPushing()
 }
 
 protocol RootViewInterface: ViewInterface {
 }
 
 protocol RootPresenterInterface: PresenterInterface {
-    func userWantsToNavigate()
+    func userWantsToPresent()
+    func userWantsToPush()
 }
 
 protocol RootInteractorInterface: InteractorInterface {

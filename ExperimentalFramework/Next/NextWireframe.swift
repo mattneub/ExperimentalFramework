@@ -9,11 +9,13 @@ final class NextWireframe: BaseWireframe {
     // MARK: - Module setup -
 
     init() {
-        // boilerplate, I don't see how to remove this because we might have other tasks in our `init`...
-        // but at least it's darned compact now
-        let view: NextViewController = container~>
+        // boilerplate, adapted
+        // I don't see how to remove this entirely,
+        // because we might have other tasks in our `init`...
+        // but at least it's darned compact now that we are using swinject
+        let view: NextViewController = swinjectContainer~>
         super.init(viewController: view)
-        view.presenter = container ~> (NextPresenter.self, argument: self)
+        view.presenter = swinjectContainer ~> (NextPresenter.self, argument: self)
     }
 }
 

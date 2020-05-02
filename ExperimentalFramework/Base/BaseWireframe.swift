@@ -15,6 +15,9 @@ class BaseWireframe {
         _viewController = viewController
     }
 
+    deinit {
+        print("farewell", self)
+    }
 }
 
 extension BaseWireframe: WireframeInterface {
