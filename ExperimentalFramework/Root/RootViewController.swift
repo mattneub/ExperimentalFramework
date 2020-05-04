@@ -1,6 +1,10 @@
 import UIKit
+import SnapKit
 
 final class RootViewController: BaseViewController<RootPresenter> {
+    
+    private let label = UILabel()
+    private let button = UIButton(type: .system)
 
     // MARK: - Public properties -
     
@@ -13,22 +17,30 @@ final class RootViewController: BaseViewController<RootPresenter> {
         self.navigationItem.rightBarButtonItem = bbi
     }
     
-    override func setupViews() {
-        // non-template code just so we see something
-        // in real life, use autolayout (perhaps snapkit)
-        self.view.backgroundColor = .white
-        let label = UILabel()
-        label.text = "Hello, world"
-        label.sizeToFit()
-        label.frame.origin = CGPoint(x: 50, y: 100)
+    override func addSubviews() {
         self.view.addSubview(label)
-        // introduce interface for navigating
-        let b = UIButton(type: .system)
-        b.setTitle("Present", for: .normal)
-        b.sizeToFit()
-        b.frame.origin = CGPoint(x: 50, y: 150)
-        self.view.addSubview(b)
-        b.addTarget(self, action: #selector(doPresent), for: .primaryActionTriggered)
+        self.view.addSubview(button)
+    }
+    
+    override func setupConstraints() {
+        label.snp.makeConstraints { maker in
+            maker.top.equalToSuperview().offset(100)
+            maker.leading.equalToSuperview().offset(50)
+        }
+        button.snp.makeConstraints { maker in
+            maker.leading.equalTo(label)
+            maker.top.equalTo(label.snp.bottom).offset(50)
+        }
+    }
+    
+    override func setupViews() {
+        label.text = "Hello, world"
+        button.setTitle("Present", for: .normal)
+        button.addTarget(self, action: #selector(doPresent), for: .primaryActionTriggered)
+    }
+    
+    override func setupColors() {
+        self.view.backgroundColor = .white
     }
 
     @objc func doPresent(_ sender: Any) {

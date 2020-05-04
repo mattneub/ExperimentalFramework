@@ -8,6 +8,8 @@ final class RootPresenter: BasePresenter {
     private unowned let view: RootViewInterface
     private let interactor: RootInteractorInterface
     private let wireframe: RootWireframeInterface
+    
+    var userName = ""
 
     // MARK: - Lifecycle -
     
