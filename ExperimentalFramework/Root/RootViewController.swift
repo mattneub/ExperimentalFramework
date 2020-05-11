@@ -34,26 +34,33 @@ final class RootViewController: BaseViewController<RootPresenter> {
     }
     
     override func setupViews() {
-        label.text = "Hello, world"
         button.setTitle("Present", for: .normal)
         button.addTarget(self, action: #selector(doPresent), for: .primaryActionTriggered)
+        self.updateLabel()
     }
     
     override func setupColors() {
         self.view.backgroundColor = .white
     }
 
+    // we are not allowed to do anything ourselves; talk to the presenter
     @objc func doPresent(_ sender: Any) {
-        // we are not allowed to do anything ourselves; talk to the presenter
         self.presenter.userWantsToPresent()
     }
     
     @objc func doPush(_ sender: Any) {
         self.presenter.userWantsToPush()
     }
+    
+    private func updateLabel() {
+        self.label.text = "Hello, " + self.presenter.username + "!"
+    }
 }
 
 // MARK: - Extensions -
 
 extension RootViewController: RootViewInterface {
+    func newUsername(_ s: String) {
+        self.updateLabel()
+    }
 }

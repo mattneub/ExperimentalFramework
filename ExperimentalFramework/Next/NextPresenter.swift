@@ -1,6 +1,9 @@
 import Foundation
 
 final class NextPresenter: BasePresenter {
+    
+    var oldUsername: String?
+    @Published var username: String = ""
 
     // MARK: - Private properties -
 
@@ -27,5 +30,8 @@ extension NextPresenter: NextPresenterInterface {
     func userWantsToNavigateBack() {
         self.wireframe.navigateBack()
     }
-    
+    func userTypedInTextField(_ text: String) {
+        self.username = text
+    }
+
 }

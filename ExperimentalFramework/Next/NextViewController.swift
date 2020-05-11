@@ -46,8 +46,11 @@ final class NextViewController: BaseViewController<NextPresenter> {
         label.text = "What is your name?"
         textField.borderStyle = .roundedRect
         textField.addTarget(nil, action: #selector(dummy), for: .editingDidEndOnExit)
+        textField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        textField.text = self.presenter.username
         button.setTitle("Done", for: .normal)
         button.addTarget(self, action: #selector(doButton), for: .primaryActionTriggered)
+        button.isHidden = self.navigationController != nil
     }
     
     override func setupColors() {
@@ -60,6 +63,10 @@ final class NextViewController: BaseViewController<NextPresenter> {
     }
     
     @objc func dummy(_ sender: Any) {}
+    
+    @objc func textFieldChanged(_ textField:UITextField) {
+        presenter.userTypedInTextField(textField.text ?? "")
+    }
 }
 
 // MARK: - Extensions -

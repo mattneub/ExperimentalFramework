@@ -45,6 +45,27 @@ enum URLNavigationMap {
             }
             return false
         }
+//        navigator.register(.rootNextByPresenting) {
+//            url, values, context in
+//            if let source = context as? RouterDelegate {
+//                let wireframe: RootWireframe = swinjectContainer~>
+//                let nav = UINavigationController(rootViewController: wireframe.viewController)
+//                source.replaceRootViewController(nav)
+//                self._currentRoute = url
+//                return wireframe.viewController
+//            }
+//            return nil
+//        }
+//        navigator.register(.rootNextByPushing) {
+//            url, values, context in
+//            if let source = context as? RouterDelegate {
+//                let wireframe: NextWireframe = swinjectContainer~>
+//                source.push(wireframe.viewController, animated: true)
+//                self._currentRoute = url
+//                return wireframe.viewController
+//            }
+//            return nil
+//        }
         navigator.handle(.rootNextByPresenting) {
             url, values, context in
             if let source = context as? RouterDelegate {

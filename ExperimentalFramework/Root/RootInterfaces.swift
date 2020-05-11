@@ -1,4 +1,5 @@
 import UIKit
+import Combine
 
 protocol RootWireframeInterface: WireframeInterface {
     func navigateToNextVCByPresenting()
@@ -6,11 +7,13 @@ protocol RootWireframeInterface: WireframeInterface {
 }
 
 protocol RootViewInterface: ViewInterface {
+    func newUsername(_:String)
 }
 
 protocol RootPresenterInterface: PresenterInterface {
     func userWantsToPresent()
     func userWantsToPush()
+    func trackUsername(_ publisher: AnyPublisher<String,Never>)
 }
 
 protocol RootInteractorInterface: InteractorInterface {

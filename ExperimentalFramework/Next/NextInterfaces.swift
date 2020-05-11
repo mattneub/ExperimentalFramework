@@ -11,6 +11,7 @@ protocol NextViewInterface: ViewInterface {
 
 protocol NextPresenterInterface: PresenterInterface {
     func userWantsToNavigateBack()
+    func userTypedInTextField(_:String)
 }
 
 protocol NextInteractorInterface: InteractorInterface {
