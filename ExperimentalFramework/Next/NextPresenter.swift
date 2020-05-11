@@ -2,7 +2,7 @@ import Foundation
 
 final class NextPresenter: BasePresenter {
     
-    var oldUsername: String?
+    // previous wireframe can subscribe to this
     @Published var username: String = ""
 
     // MARK: - Private properties -

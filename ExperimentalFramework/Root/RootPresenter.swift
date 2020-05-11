@@ -16,8 +16,6 @@ final class RootPresenter: BasePresenter {
     private let interactor: RootInteractorInterface
     private let wireframe: RootWireframeInterface
     
-    var userName = ""
-
     // MARK: - Lifecycle -
     
     // boilerplate, slightly altered:

@@ -57,8 +57,8 @@ final class NextViewController: BaseViewController<NextPresenter> {
         self.view.backgroundColor = .white
     }
     
+    // we are not allowed to do anything ourselves; talk to the presenter
     @objc func doButton(_ sender: Any) {
-        // we are not allowed to do anything ourselves; talk to the presenter
         self.presenter.userWantsToNavigateBack()
     }
     
