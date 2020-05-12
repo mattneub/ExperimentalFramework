@@ -43,20 +43,25 @@ extension RootWireframe: RootWireframeInterface {
 // the way we get at the presenters may seem roundabout...
 // but attempting to short-circuit this with actual properties is a good way to leak, so let's not
 
+// looks silly because for purposes of the example I am presenting and pushing the same v.c.
+// in real life that wouldn't happen
+// but you'd just always do this dance:
+// get the target's presenter, get my presenter, hook them together as desired, and navigate
+
 extension RootWireframe: RouterDelegate {
-    // this could become a kind of boilerplate... can it be shortened with generics? not sure
-    private var myPresenter: RootPresenter { (self.viewController as! BaseViewController).presenter }
-    private func targetPresenter(_ vc: UIViewController) -> NextPresenter {
-        (vc as! NextViewController).presenter
-    }
     func present(_ target: UIViewController, animated: Bool) {
-        targetPresenter(target).username = myPresenter.username
-        myPresenter.trackUsername(targetPresenter(target).$username.eraseToAnyPublisher())
+        let targPresenter: NextPresenter = target.presenter()
+        let myPresenter: RootPresenter = self.viewController.presenter()
+        targPresenter.username = myPresenter.username
+        myPresenter.trackUsername(targPresenter.$username.eraseToAnyPublisher())
         self.viewController.present(target, animated:animated)
     }
     func push(_ target: UIViewController, animated: Bool) {
-        targetPresenter(target).username = myPresenter.username
-        myPresenter.trackUsername(targetPresenter(target).$username.eraseToAnyPublisher())
+        let targPresenter: NextPresenter = target.presenter()
+        let myPresenter: RootPresenter = self.viewController.presenter()
+        targPresenter.username = myPresenter.username
+        myPresenter.trackUsername(targPresenter.$username.eraseToAnyPublisher())
         self.viewController.navigationController?.pushViewController(target, animated: true)
     }
 }
+
